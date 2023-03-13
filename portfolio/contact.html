@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Portfolio</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+
+<header class="header">
+    <h1 class="logo"><a href="#">William Turner</a></h1>
+  <ul class="main-nav">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="imagemap.html">image map</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="xmlandfetch.html">xml and fetch</a></li>
+  </ul>
+</header> 
+
+<div class="container">
+    <form action="#">
+  
+      <label for="fname">First Name</label>
+      <input type="text" required id="fname" name="firstname" placeholder="Your name..">
+      <script>
+        function validateForm() {
+          let x = document.forms["myForm"]["fname"].value;
+          if (x == "") {
+            alert("Name must be filled out");
+            return false;
+          }
+        }
+        </script>
+
+  
+      <label for="lname">Last Name</label>
+      <input type="text" required id="lname" name="lastname" placeholder="Your last name..">
+
+      
+  
+  
+      <label for="subject">Message</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:50px"></textarea>
+  
+      <input type="submit" value="Submit">
+  
+    </form>
+  </div> 

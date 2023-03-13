@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Portfolio</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+
+<header class="header">
+  <h1 class="logo"><a href="#">William Turner</a></h1>
+  <ul class="main-nav">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="imagemap.html">image map</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#">xml and fetch</a></li>
+  </ul>
+</header>
+
+<body>
+
+  <h2>XMLHttpRequest !</h2>
+
+  <div id="demo">
+    <button type="button" onclick="loadXMLDoc()">click me</button>
+  </div>
+
+  <script>
+    function loadXMLDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("demo").innerHTML =
+            this.responseText;
+        }
+      };
+      xhttp.open("GET", "xml.txt", true);
+      xhttp.send();
+    }
+  </script>
+
+</body>
+
+</html>

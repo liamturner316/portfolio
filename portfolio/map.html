@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Portfolio</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link href="map.js" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+     <style>
+		#map { height: 180px; }
+	</style>
+</head>
+
+<header class="header">
+    <h1 class="logo"><a href="#">William Turner</a></h1>
+    <ul class="main-nav">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="#">Map</a></li>
+        <li><a href="imagemap.html">image map</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="xmlandfetch.html">xml and fetch</a></li>
+    </ul>
+</header>
+
+<body>
+
+    <button onclick="getLocation()">click for your location</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+
+
+<div id="map"></div>
+
+	<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+
+	<script>
+		var map = L.map('map').setView([51.505, -0.09], 13);
+
+		L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		    maxZoom: 19,
+		    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		}).addTo(map);
+
+		var marker = L.marker([51.5, -0.09]).addTo(map);
+
+		var circle = L.circle([51.508, -0.11], {
+		    color: 'red',
+		    fillColor: '#f03',
+		    fillOpacity: 0.5,
+		    radius: 500
+		}).addTo(map);
+
+		var polygon = L.polygon([
+		    [51.509, -0.08],
+		    [51.503, -0.06],
+		    [51.51, -0.047]
+		]).addTo(map);
+	</script>
+
+</body>
+
+</html>
